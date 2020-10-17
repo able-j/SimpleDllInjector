@@ -21,20 +21,20 @@ int main()
 	std::cout << "Enter the window name rn: ";
 	std::cin.getline(ProgramName, sizeof(ProgramName));
 	HWND Program = FindWindowA(NULL, ProgramName);
-	if (Program == NULL) std::cerr << "Oi cunt learn grammar and spell the window name right next time\n";
+	if (Program == NULL) std::cerr << "Window not found.\n";
 
 	else {
 		GetWindowThreadProcessId(Program, &pID);
 		HANDLE hProcess = OpenProcess(PROCESS_ALL_ACCESS, FALSE, pID);
-			if (hProcess == NULL) std::cerr << "Failed to open your shit get admin perms cunt\n";
+			if (hProcess == NULL) std::cerr << "Failed to open\n";
 
 			else
 			{
-				std::cout << "\nEnter the DLL name cunt: ";
+				std::cout << "\nEnter the DLL name: ";
 				std::cin >> PartialDllName;
 				if (!bFileExists((LPCSTR)PartialDllName))
 				{
-					std::cerr << "\nEnter a file that exists cunt\n";
+					std::cerr << "\nEnter a file that exists\n";
 					return EXIT_FAILURE;
 				}
 				GetFullPathNameA(PartialDllName, MAX_PATH, DllName, NULL);
